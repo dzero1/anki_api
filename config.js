@@ -41,7 +41,7 @@ const config = {
   test: { },
   development: {
     mongo: {
-      uri: 'mongodb://localhost/anki-api-dev',
+      uri: process.env.MONGODB_URI || 'mongodb://localhost/anki-api-dev',
       options: {
         debug: true
       }
