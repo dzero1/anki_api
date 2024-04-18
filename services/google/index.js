@@ -1,13 +1,10 @@
-import request from 'request-promise'
-
 export const getUser = (accessToken) =>
-  request({
-    uri: 'https://www.googleapis.com/userinfo/v2/me',
-    json: true,
-    qs: {
+  fetch(
+    'https://www.googleapis.com/userinfo/v2/me',
+    {
       access_token: accessToken
     }
-  }).then(({ id, name, email, picture }) => ({
+  ).then(({ id, name, email, picture }) => ({
     service: 'google',
     picture,
     id,
