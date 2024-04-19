@@ -57,6 +57,7 @@ HTTP/1.1 201 Created
 Authenticate the user (sign in):
 ```bash
 curl -X POST http://0.0.0.0:9000/auth -i -u test@example.com:123456 -d "access_token=MASTER_KEY_HERE"
+curl -X POST https://anki-api-ldp7.onrender.com/auth -i -u test@example.com:123456 -d "access_token=fblbx3yfPvVM3PAwB0aklbanzPbL1NB5"
 ```
 
 It will return something like:

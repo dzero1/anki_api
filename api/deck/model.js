@@ -7,6 +7,9 @@ deckSchema.methods = {
     const view = {
       // simple view
       id: this.id,
+      name: this.name,
+      description: this.description,
+      colors: this.colors,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt
     }
