@@ -31,6 +31,6 @@ export const update = ({ body, params }, res, next) =>
 export const destroy = ({ params }, res, next) =>
   Deck.findById(params.id)
     .then(notFound(res))
-    .then((deck) => deck ? deck.remove() : null)
+    .then((deck) => deck ? deck.remove() : null) 
     .then(success(res, 204))
     .catch(next)

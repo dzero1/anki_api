@@ -1,10 +1,13 @@
 import { Router } from 'express'
-import { middleware as query } from 'querymen'
+import { middleware as body } from 'bodymen'
+import { middleware as query } from 'querymen' 
 import { token } from '../../services/passport'
 import { create, index, show, update, destroy } from './controller'
+import { schema } from './model'
 export Deck, { schema } from './model'
 
 const router = new Router()
+const { name, description, colors } = schema.tree 
 
 /**
  * @api {post} /deck Create deck
@@ -19,6 +22,7 @@ const router = new Router()
  */
 router.post('/',
   token({ required: true }),
+  body({ name, description, colors }),
   create)
 
 /**
@@ -65,6 +69,7 @@ router.get('/:id',
  */
 router.put('/:id',
   token({ required: true }),
+  body({ name, description, colors }),
   update)
 
 /**

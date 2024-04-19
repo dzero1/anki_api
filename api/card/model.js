@@ -3,7 +3,17 @@ import mongoose, { Schema } from 'mongoose'
 const cardSchema = new Schema({
   deck: {
     type: String
-  }
+  },
+  front: {
+    type: String,
+    index: true,
+    trim: true
+  },
+  back: {
+    type: String,
+    index: true,
+    trim: true
+  },
 }, {
   timestamps: true,
   toJSON: {
@@ -18,6 +28,8 @@ cardSchema.methods = {
       // simple view
       id: this.id,
       deck: this.deck,
+      front: this.front,
+      back: this.back,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt
     }

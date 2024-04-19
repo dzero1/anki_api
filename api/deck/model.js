@@ -1,6 +1,22 @@
 import mongoose, { Schema } from 'mongoose'
 
-const deckSchema = new Schema({}, { timestamps: true })
+const deckSchema = new Schema({
+  name: {
+    type: String,
+    index: true,
+    trim: true
+  },
+  description: {
+    type: String,
+    index: false,
+    trim: true
+  },
+  colors: {
+    type: String,
+    index: false,
+    trim: true
+  },
+}, { timestamps: true })
 
 deckSchema.methods = {
   view (full) {

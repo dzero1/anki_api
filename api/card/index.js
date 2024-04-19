@@ -7,7 +7,7 @@ import { schema } from './model'
 export Card, { schema } from './model'
 
 const router = new Router()
-const { deck } = schema.tree
+const { deck, front, back } = schema.tree
 
 /**
  * @api {post} /cards Create card
@@ -23,7 +23,7 @@ const { deck } = schema.tree
  */
 router.post('/',
   token({ required: true }),
-  body({ deck }),
+  body({ deck, front, back }),
   create)
 
 /**
@@ -71,7 +71,7 @@ router.get('/:id',
  */
 router.put('/:id',
   token({ required: true }),
-  body({ deck }),
+  body({ deck, front, back }),
   update)
 
 /**
